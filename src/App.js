@@ -3,9 +3,10 @@ import Button from '@material-ui/core/Button';
 
 import './App.css';
 import Header from './components/header';
-import JsonInput from './components/jsonInput/jsonInput';
+import JsonInput from './components/jsonInput';
 import Result from './components/result';
 import { compareJSON } from './utils/comparison';
+import { makeStyles } from '@material-ui/core';
 
 const App = () => {
 
@@ -19,8 +20,6 @@ const App = () => {
   const inputRef2 = useRef();
 
   const compareObjects = () => {
-    console.log("File to compare", firstFile);
-    console.log("With", secondFile);
     setSimilarity(compareJSON(firstFile, secondFile));
   }
 
@@ -47,15 +46,25 @@ const App = () => {
           break;
       }
     };
-    file && reader.readAsText(file.target.files[0])
+    if (file && file.target.files[0]) {
+      reader.readAsText(file.target.files[0])  
+    }
   }
 
+  const useStyles = makeStyles((theme) => ({
+    content: {
+        marginLeft: 16,
+    },
+  }));
+
+  const classes = useStyles();
+  
   return (
     <React.Fragment>
-   ,   <Header 
+      <Header 
         title="JSON Object Similarity Score"
       />
-      <React.Fragment>
+      <div className={classes.content}> 
         <JsonInput 
           label="Choose first JSON file"
           handleSelect={(file) => handleFileSelect(file, FIRST)}
@@ -78,7 +87,7 @@ const App = () => {
           similarity={similarity} 
           handleReset={handleReset}
         />
-      </React.Fragment>
+      </div>
     </React.Fragment>
   );
 }

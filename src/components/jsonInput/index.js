@@ -3,7 +3,8 @@ import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        margin: 16,
+        marginTop: 16,
+        marginBottom: 16,
     },
 }));
 

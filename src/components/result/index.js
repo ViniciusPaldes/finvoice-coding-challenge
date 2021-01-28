@@ -8,7 +8,8 @@ const Result = (props) => {
             <div>
                 <h1>Similarity is: {similarity}</h1>
                 <Button
-                    color="primary"
+                    variant="contained" 
+                    color="secondary"
                     onClick={handleReset}
                 >
                     Reset
