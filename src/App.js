@@ -5,7 +5,7 @@ import './App.css';
 import Header from './components/header';
 import JsonInput from './components/jsonInput/jsonInput';
 import Result from './components/result';
-import { compareJSON } from './utils/comparation';
+import { compareJSON } from './utils/comparison';
 
 const App = () => {
 

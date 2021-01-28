@@ -3,8 +3,7 @@ import React from 'react';
 
 const Result = (props) => {
     const { similarity, handleReset } = props;
-
-    if (similarity) {
+    if (similarity || similarity === 0) {
         return (
             <div>
                 <h1>Similarity is: {similarity}</h1>
